@@ -1,0 +1,12 @@
+.complete_link i {
+    color: black;
+    text-decoration: none;
+}
+
+.complete_link .active {
+    color: green;
+}
+.date_complete{
+    color: #999;
+    /* font-size: 0.8em; */
+}

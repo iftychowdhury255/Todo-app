@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="mt-3">My To Do list</h1><hr>
+        <table class="table table-striped mt-5">
+          <thead>
+            <tr>
+              <th scope="col">SL No</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Is Complete</th>
+              <th scope="col">Date Completed</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for todo in all_todos %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ todo.title }}</td>
+              <td>{{ todo.description }}</td>
+              <td>
+                <a href="" class="complete_link">{% if todo.isComplete %}
+                  <i class="fa-regular fa-square-check active"></i>
+                  {% else %}
+                  <i class="fa-regular fa-square"></i>
+                  {% endif %}</a>
+              </td>
+              <td>
+              <span href="" class="date_complete">{% if todo.isComplete %}
+                {{ todo.updated_at }}
+                  {% else %}
+                  <span>Not yet completed</span>
+                  {% endif %}</span>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}
