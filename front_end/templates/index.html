@@ -28,12 +28,17 @@
                   <i class="fa-regular fa-square"></i>
                   {% endif %}</a>
               </td>
+
               <td>
-              <span href="" class="date_complete">{% if todo.isComplete %}
-                {{ todo.updated_at }}
+                {% if todo.isComplete %}
+              <span href="" class="date_complete">
+                <span class="date_complete">
+                {{todo.updated_at|date:"Y-m-d"}} {{ todo.updated_at|date:"g:i A" }}
+                </span>
                   {% else %}
                   <span>Not yet completed</span>
-                  {% endif %}</span>
+              </span>
+                {% endif %}
               </td>
             </tr>
             {% endfor %}
