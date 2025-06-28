@@ -13,6 +13,7 @@
               <th scope="col">Description</th>
               <th scope="col">Is Complete</th>
               <th scope="col">Date Completed</th>
+              <th scope="col">Edit | Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -21,8 +22,8 @@
               <td>{{ forloop.counter }}</td>
               <td>{{ todo.title }}</td>
               <td>{{ todo.description }}</td>
-              <td>
-                <a href="" class="complete_link">{% if todo.isComplete %}
+              <td class="text-center">
+                <a href="{% url 'statusComplete' todo.pk %}" class="complete_link">{% if todo.isComplete %}
                   <i class="fa-regular fa-square-check active"></i>
                   {% else %}
                   <i class="fa-regular fa-square"></i>
@@ -39,6 +40,10 @@
                   <span>Not yet completed</span>
               </span>
                 {% endif %}
+              </td>
+              <td class="text-center">
+                <i style="color: blue; font-size: 25px; cursor: pointer;" class="fa-solid fa-pen-to-square"></i>
+                <i style="color: red; font-size: 25px; cursor: pointer;" class="fa-solid fa-trash-can"></i>
               </td>
             </tr>
             {% endfor %}
