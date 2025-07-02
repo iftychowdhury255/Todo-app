@@ -13,7 +13,7 @@
               <th scope="col">Description</th>
               <th scope="col">Is Complete</th>
               <th scope="col">Date Completed</th>
-              <th scope="col">Edit | Delete</th>
+              <th scope="col">Update | Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -41,9 +41,14 @@
               </span>
                 {% endif %}
               </td>
-              <td class="text-center">
-                <i style="color: blue; font-size: 25px; cursor: pointer;" class="fa-solid fa-pen-to-square"></i>
-                <i style="color: red; font-size: 25px; cursor: pointer;" class="fa-solid fa-trash-can"></i>
+              <td style="display: flex; margin-auto; justify-content: center; gap: 5px;">
+                <a href=""><i style="color: blue; font-size: 25px;" class="fa-solid fa-pen-to-square"></i></a>|
+                <form action="{% url 'deleteTodo' todo.pk %}">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-link" style="color: red; text-decoration: none; padding: 0;">
+                    <i style="color: red; font-size: 25px;" class="fa-solid fa-trash-can"></i>
+                  </button>
+                </form>
               </td>
             </tr>
             {% endfor %}
